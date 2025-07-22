@@ -1,0 +1,65 @@
+/* src/components/Header/Header.module.css */
+.header {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+  box-shadow: var(--shadow-dark);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--text-light);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Jarak antar item navigasi */
+}
+
+.nav-item {
+  /* No specific styles needed here, styles are on nav-link */
+}
+
+.nav-link {
+  color: var(--text-light);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after { /* Anda bisa menambahkan kelas 'active' dari NavLink React Router untuk indikator halaman aktif */
+  width: 100%;
+}
+
+/* --- Responsive Styles for Header --- */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    display: none; /* Sembunyikan navigasi di mobile, nanti kita bisa tambahkan menu hamburger */
+  }
+
+  /* Anda bisa menambahkan hamburger menu icon di sini */
+}

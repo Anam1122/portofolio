@@ -1,0 +1,87 @@
+/* src/pages/PortfolioPage/PortfolioPage.module.css */
+
+/* --- Hero Section --- */
+.hero-section {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* --- Projects Section --- */
+.projects-section {
+  background-color: var(--bg-light);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* --- Optional Filter Bar Styles --- */
+/*
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 10px 25px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+*/
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Satu kolom di mobile */
+  }
+
+  /* .filter-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter-button {
+    width: 80%;
+    max-width: 250px;
+  } */
+}

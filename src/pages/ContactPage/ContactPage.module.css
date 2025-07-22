@@ -1,0 +1,206 @@
+/* src/pages/ContactPage/ContactPage.module.css */
+
+/* --- Hero Section --- */
+.hero-section {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* --- Contact Content Section --- */
+.contact-content-section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Info di kiri, Form di kanan */
+  gap: 60px;
+  background-color: var(--bg-light);
+}
+
+.contact-info {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--text-color);
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.contact-list li strong {
+  color: var(--primary-color);
+}
+
+.contact-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.contact-form-container {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+/* --- Section Titles (untuk Contact Page) --- */
+.section-title {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.contact-info .section-title,
+.contact-form-container .section-title {
+  text-align: left; /* Biarkan judul rata kiri di sini */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+}
+
+/* --- Form Styles --- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Ring focus */
+  outline: none;
+}
+
+.form-textarea {
+  resize: vertical; /* Hanya izinkan resize vertikal */
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #303f9f;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-dark);
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--primary-color); /* Bisa diubah warnanya jika success/error */
+}
+
+/* --- Responsive Styles for ContactPage --- */
+@media (max-width: 992px) {
+  .contact-content-section {
+    grid-template-columns: 1fr; /* Satu kolom di tablet dan mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .contact-info,
+  .contact-form-container {
+    padding: 20px;
+  }
+  .submit-button {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+}
