@@ -2,26 +2,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Import Global CSS
+// Global Styles
 import './index.css';
 
-// Import Components
+// Layout Components
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-// Import Pages (CORRECTED PATHS)
-import HomePage from './pages/HomePage/HomePage';             // Path now includes /HomePage/
-import PortfolioPage from './pages/PortfolioPage/PortfolioPage'; // Path now includes /PortfolioPage/
-import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage'; // Path now includes /ProjectDetailPage/
-import AboutPage from './pages/AboutPage/AboutPage';         // Assuming you will create this as src/pages/AboutPage/AboutPage.jsx
-import ContactPage from './pages/ContactPage/ContactPage';     // Assuming you will create this as src/pages/ContactPage/ContactPage.jsx
-
+// Pages
+import HomePage from './pages/HomePage/HomePage';
+import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
+import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import ContactPage from './pages/ContactPage/ContactPage';
 
 function App() {
   return (
     <Router>
       <Header />
-      <main>
+
+      <main style={{ flex: '1 0 auto' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
@@ -30,6 +30,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
+
       <Footer />
     </Router>
   );

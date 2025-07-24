@@ -1,39 +1,37 @@
-/* src/components/Footer/Footer.module.css */
 .footer {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
   padding: 2rem 0;
-  margin-top: 50px; /* Beri sedikit jarak dari konten di atasnya */
+  background-color: var(--bg-dark);
+  color: var(--text-color-medium);
+  text-align: center;
+  border-top: 1px solid var(--border-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color-medium);
+}
+
+.socials {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Izinkan wrap pada layar kecil */
-  gap: 20px;
+  justify-content: center;
+  gap: 1.25rem;
+  font-size: 1.5rem;
 }
 
-.social-links {
-  display: flex;
-  gap: 20px;
+.socials a {
+  color: var(--secondary-light);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-link {
-  color: var(--text-light);
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: var(--secondary-color);
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .social-links {
-    margin-top: 15px;
-  }
+.socials a:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
 }

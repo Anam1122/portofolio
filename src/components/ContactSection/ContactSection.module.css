@@ -1,0 +1,77 @@
+.contactSection {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 100px 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  background: transparent;
+  border: 2px solid var(--secondary-color);
+  border-radius: 10px;
+  color: var(--text-light);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--text-light);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: var(--bg-dark);
+  padding: 0 0.25rem;
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:not(:placeholder-shown) + label,
+.inputGroup textarea:focus + label,
+.inputGroup textarea:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.submitButton {
+  background: var(--secondary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-2px);
+}

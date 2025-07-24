@@ -1,81 +1,71 @@
-/* src/components/ProjectCard/ProjectCard.module.css */
-.project-card {
-  display: block; /* Agar link memenuhi area card */
+.projectCard {
   background-color: var(--bg-light);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden; /* Pastikan gambar tidak keluar dari border radius */
-  box-shadow: var(--shadow-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none; /* Hilangkan underline pada link */
-  color: inherit; /* Warisi warna teks dari parent */
-}
-
-.project-card:hover {
-  transform: translateY(-8px); /* Efek melayang */
-  box-shadow: var(--shadow-dark);
-}
-
-.project-image {
-  width: 100%;
-  height: 220px; /* Tinggi gambar yang konsisten */
-  object-fit: cover; /* Pastikan gambar mengisi area */
-  border-bottom: 1px solid var(--border-color);
-}
-
-.project-info {
-  padding: 20px;
-}
-
-.project-title {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: var(--primary-color);
-  line-height: 1.3;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  color: var(--text-color);
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-.project-techs {
   display: flex;
-  flex-wrap: wrap; /* Untuk teknologi yang banyak */
-  gap: 8px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
-.tech-tag {
-  background-color: #e0e7ff; /* Warna latar belakang tag */
-  color: var(--primary-color);
-  padding: 5px 10px;
-  border-radius: 4px;
+.projectCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.projectImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectInfo {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-dark);
+}
+
+.projectDescription {
+  color: var(--text-color-medium);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.projectTechs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.techTag {
+  background-color: var(--secondary-light);
+  color: var(--bg-dark);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 500;
-  white-space: nowrap; /* Jangan putus baris */
 }
 
-.view-details {
-  display: inline-block;
-  color: var(--secondary-color);
+.viewDetails {
+  font-size: 0.9rem;
+  color: var(--primary-color);
   font-weight: 600;
-  margin-top: 10px;
   transition: color 0.3s ease;
 }
 
-.project-card:hover .view-details {
-  color: #ff80ab; /* Sedikit lebih terang saat hover */
-}
-
-/* --- Responsive Styles for ProjectCard --- */
-@media (max-width: 768px) {
-  .project-image {
-    height: 180px;
-  }
-  .project-title {
-    font-size: 1.4rem;
-  }
+.projectCard:hover .viewDetails {
+  color: var(--secondary-dark);
 }

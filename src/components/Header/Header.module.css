@@ -1,65 +1,121 @@
-/* src/components/Header/Header.module.css */
 .header {
-  background-color: var(--primary-color);
+  background-color: var(--bg-light);
+  color: var(--text-color-dark);
+  box-shadow: var(--shadow-sm);
   padding: 1rem 0;
-  box-shadow: var(--shadow-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  color: var(--text-light);
   font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 3px solid var(--primary-color);
 }
 
-.nav-list {
-  list-style: none;
+.logo span {
+  color: var(--secondary-color);
+}
+
+.nav {
   display: flex;
-  gap: 30px; /* Jarak antar item navigasi */
+  gap: 2rem;
 }
 
-.nav-item {
-  /* No specific styles needed here, styles are on nav-link */
-}
-
-.nav-link {
-  color: var(--text-light);
+.nav a {
+  text-decoration: none;
+  color: var(--text-color-dark);
   font-weight: 500;
-  padding: 5px 0;
   position: relative;
+  transition: color 0.3s;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
+.nav a:hover {
+  color: var(--primary-color);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Hamburger Styles --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 24px;
   height: 2px;
-  background-color: var(--secondary-color);
-  transition: width 0.3s ease-in-out;
+  background-color: var(--text-color-dark);
+  transition: all 0.3s ease;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after { /* Anda bisa menambahkan kelas 'active' dari NavLink React Router untuk indikator halaman aktif */
-  width: 100%;
+/* Toggle transform */
+.bar1 {
+  transform: rotate(45deg) translateY(8px);
 }
 
-/* --- Responsive Styles for Header --- */
+.bar2 {
+  opacity: 0;
+}
+
+.bar3 {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* --- Mobile --- */
 @media (max-width: 768px) {
-  .logo {
-    font-size: 1.5rem;
-  }
-
   .nav {
-    display: none; /* Sembunyikan navigasi di mobile, nanti kita bisa tambahkan menu hamburger */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-light);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    display: none;
   }
 
-  /* Anda bisa menambahkan hamburger menu icon di sini */
+  .nav.open {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,230 +1,88 @@
-/* src/pages/ProjectDetailPage/ProjectDetailPage.module.css */
-
-/* --- Hero Section --- */
-.hero-section {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  padding: 80px 0;
-  text-align: center;
-}
-
-.project-title {
-  font-size: 3.2rem;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.project-role {
-  font-size: 1.3rem;
-  opacity: 0.9;
-}
-
-/* --- Main Content Section --- */
-.main-content {
+.project {
+  padding: 3rem 2rem;
   background-color: var(--bg-light);
+  color: var(--text-color-dark);
 }
 
-.project-header-image {
-  margin-bottom: 40px;
-  border-radius: 8px;
-  overflow: hidden; /* Pastikan gambar mematuhi border-radius */
-  box-shadow: var(--shadow-dark);
+body[data-theme='dark'] .project {
+  background-color: var(--bg-dark);
+  color: var(--text-color-light);
 }
 
-.main-image {
-  width: 100%;
-  height: auto;
-  display: block;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.details-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr; /* Kolom utama 2/3, sidebar 1/3 */
-  gap: 60px; /* Jarak antar kolom */
-}
-
-.section-heading {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 30px;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.section-heading::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--secondary-color);
-  border-radius: 2px;
-}
-
-.long-description {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  color: var(--text-color);
-}
-
-.long-description h2, 
-.long-description h3, 
-.long-description h4 { /* Styling for headings inside description */
-  color: var(--primary-color);
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-size: 1.5rem; /* Adjust as needed */
-}
-
-.long-description ul, 
-.long-description ol {
-  margin-left: 25px;
-  margin-bottom: 20px;
-}
-
-.long-description li {
-  margin-bottom: 8px;
-}
-
-/* --- Project Links (Buttons) --- */
-.project-links {
-  display: flex;
-  flex-wrap: wrap; /* Izinkan wrap jika tombol banyak */
-  gap: 15px;
-  margin-top: 40px;
-}
-
-/* Menggunakan kembali gaya button dari HomePage.module.css */
-/* Karena kita tidak bisa mengimpor .module.css dari file .module.css lain, 
-   kita perlu mendefinisikan ulang atau memindahkannya ke index.css jika ingin benar-benar reusable.
-   Untuk saat ini, kita akan duplikat agar cepat jalan. */
-.button {
-  padding: 12px 25px;
+.backButton {
+  background: none;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 600;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.primary-button {
-  background-color: var(--primary-color);
-  color: var(--text-light);
+.backButton:hover {
+  color: var(--primary-dark);
 }
 
-.primary-button:hover {
-  background-color: #303f9f;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-dark);
+.image {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
 }
 
-.secondary-button {
-  background-color: transparent;
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   color: var(--primary-color);
-  border: 2px solid var(--primary-color);
 }
 
-.secondary-button:hover {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-dark);
+body[data-theme='dark'] .title {
+  color: var(--secondary-light);
 }
 
-.tertiary-button { /* Tombol opsional untuk Figma/lainnya */
-  background-color: transparent;
-  color: #6a6a6a;
-  border: 2px solid #6a6a6a;
+.description {
+  font-size: 1.125rem;
+  color: var(--text-color-medium);
+  margin-bottom: 2rem;
 }
 
-.tertiary-button:hover {
-  background-color: #6a6a6a;
-  color: var(--text-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-dark);
+body[data-theme='dark'] .description {
+  color: var(--text-color-light);
 }
 
-
-/* --- Sidebar Column --- */
-.sidebar-column {
-  background-color: #f8f8f8;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: var(--shadow-light);
-  height: fit-content; /* Pastikan tinggi sesuai konten */
-  position: sticky; /* Agar sidebar ikut scroll sampai batas tertentu */
-  top: 20px; /* Jarak dari atas saat sticky */
+.stackTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-dark);
 }
 
-.sidebar-heading {
-  font-size: 1.6rem;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--secondary-color);
+body[data-theme='dark'] .stackTitle {
+  color: var(--text-color-light);
 }
 
-.tech-list {
-  list-style: none;
+.stackList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.tech-item {
-  background-color: #e0e7ff;
-  color: var(--primary-color);
-  padding: 8px 15px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  font-weight: 500;
+.stackItem {
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
 }
 
-/* --- Responsive Styles for ProjectDetailPage --- */
-@media (max-width: 992px) { /* Untuk tablet */
-  .details-grid {
-    grid-template-columns: 1fr; /* Satu kolom di tablet, sidebar di bawah konten utama */
-    gap: 40px;
-  }
-  .sidebar-column {
-    position: static; /* Hilangkan sticky di mobile */
-    top: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 60px 0;
-  }
-  .project-title {
-    font-size: 2.5rem;
-  }
-  .project-role {
-    font-size: 1.1rem;
-  }
-  .section-heading {
-    font-size: 1.8rem;
-  }
-  .long-description {
-    font-size: 1rem;
-  }
-  .project-links {
-    flex-direction: column; /* Tombol jadi tumpuk di mobile */
-    gap: 10px;
-  }
-  .button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-title {
-    font-size: 2rem;
-  }
-  .section-padding {
-    padding: 40px 0;
-  }
+body[data-theme='dark'] .stackItem {
+  background: var(--secondary-dark);
 }

@@ -1,61 +1,85 @@
 // src/pages/HomePage/HomePage.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import styles from './HomePage.module.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import styles from './HomePage.module.css'; // Import CSS Module
-import projectsData from '../../data/projects'; // Import data proyek (pastikan path relatif benar)
-import ProjectCard from '../../components/ProjectCard/ProjectCard'; // Import komponen ProjectCard
+import projects from '../../data/projects';
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import AboutSection from '../../components/AboutSection/AboutSection';
+import ContactSection from '../../components/ContactSection/ContactSection';
 
-function HomePage() {
-  // Ambil 3 proyek unggulan, atau sesuaikan jumlahnya
-  const featuredProjects = projectsData.slice(0, 3); 
+const HomePage = () => {
+  useEffect(() => {
+    AOS.init({ once: true });
+
+    const handleScroll = () => {
+      const offset = window.scrollY * 0.2;
+      document.querySelectorAll(`.${styles.parallax}`).forEach((el) => {
+        el.style.setProperty('--scroll-y', `${offset}px`);
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className={styles.homePage}>
+    <>
       {/* Hero Section */}
-      <section className={`${styles.heroSection} section-padding`}>
-        <div className={`${styles.heroContent} container`}>
-          <h1 className={styles.heroTitle}>Halo, saya <span className={styles.highlight}>[Khoirul Anam]</span>.</h1>
+      <section className={`${styles.heroSection} ${styles.parallaxBg}`}>
+        <div className={styles.heroContent} data-aos="fade-up" data-aos-duration="1000">
+          <h1 className={styles.heroTitle}>
+            Selamat Datang di <span className={styles.highlight}>My Portfolio</span>
+          </h1>
           <p className={styles.heroSubtitle}>
-            Seorang **React Developer** dengan *passion* mendalam dalam **UI/UX Design**.
-            Saya membangun aplikasi web yang efisien dan ramah pengguna.
+            Saya Khoirul, membangun solusi digital untuk masa depan
           </p>
-          <div className={styles.heroActions}>
-            <Link to="/portfolio" className={`${styles.button} ${styles.primaryButton}`}>Lihat Portofolio</Link>
-            <Link to="/contact" className={`${styles.button} ${styles.secondaryButton}`}>Hubungi Saya</Link>
+          <div className={styles.heroActions} data-aos="zoom-in" data-aos-delay="300">
+            <a href="#portfolio" className={`${styles.button} ${styles.primaryButton}`}>
+              Lihat Proyek
+            </a>
+            <a href="#contact" className={`${styles.button} ${styles.secondaryButton}`}>
+              Hubungi Saya
+            </a>
           </div>
+        </div>
+
+        {/* Shapes Dekoratif */}
+        <div className={styles.heroShapes}>
+          <div className={`${styles.shapeOne} ${styles.parallax}`}></div>
+          <div className={`${styles.shapeTwo} ${styles.parallax}`}></div>
         </div>
       </section>
 
       {/* Featured Projects Section */}
-      <section className={`${styles.featuredProjectsSection} section-padding`}>
-        <div className="container">
-          <h2 className={`${styles.sectionTitle} text-center`}>Proyek Unggulan</h2>
-          <div className={styles.projectsGrid}>
-            {featuredProjects.map(project => (
-              // Menggunakan komponen ProjectCard yang sudah dibuat
-              <ProjectCard key={project.id} project={project} /> 
-            ))}
-          </div>
-          <div className={`${styles.ctaContainer} text-center`}>
-            <Link to="/portfolio" className={`${styles.button} ${styles.primaryButton}`}>Lihat Semua Proyek</Link>
-          </div>
+      <section className={styles.featuredProjectsSection} id="portfolio">
+        <h2 className={styles.sectionTitle} data-aos="fade-up">Proyek Unggulan</h2>
+        <div className={styles.projectsGrid}>
+          {projects.slice(0, 3).map((project, index) => (
+            <div
+              key={project.id}
+              data-aos="fade-up"
+              data-aos-delay={index * 200}
+            >
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+        <div className={styles.ctaContainer} data-aos="fade-up" data-aos-delay="200">
+          <Link to="/portfolio" className={`${styles.button} ${styles.primaryButton}`}>
+            Lihat Semua Proyek
+          </Link>
         </div>
       </section>
 
-      {/* About Section Snippet (Opsional) */}
-      <section className={`${styles.aboutSnippetSection} section-padding`}>
-        <div className={`${styles.aboutContent} container text-center`}>
-          <h2 className={styles.sectionTitle}>Tentang Saya</h2>
-          <p className={styles.aboutText}>
-            Saya adalah seorang pengembang yang bersemangat dalam menciptakan pengalaman digital yang intuitif dan menarik. 
-            Dengan latar belakang di bidang IT dan fokus pada *frontend development* serta *user experience*, 
-            saya selalu mencari cara untuk menggabungkan fungsionalitas yang kuat dengan desain yang indah.
-          </p>
-          <Link to="/about" className={`${styles.button} ${styles.secondaryButton}`}>Baca Selengkapnya</Link>
-        </div>
-      </section>
-    </div>
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Contact Section */}
+      <ContactSection />
+    </>
   );
-}
+};
 
 export default HomePage;

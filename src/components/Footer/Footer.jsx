@@ -1,17 +1,22 @@
 // src/components/Footer/Footer.jsx
 import React from 'react';
 import styles from './Footer.module.css';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.container} container`}>
-        <p>&copy; {currentYear} Nama Anda. All rights reserved.</p>
-        <div className={styles.socialLinks}>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>GitHub</a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>LinkedIn</a>
-          {/* Tambahkan link media sosial lain jika ada */}
+      <div className={styles.container}>
+        <p className={styles.text}>
+          © {new Date().getFullYear()} Khoirul Anam. Made with 💜 using React.
+        </p>
+        <div className={styles.socials}>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedin />
+          </a>
         </div>
       </div>
     </footer>

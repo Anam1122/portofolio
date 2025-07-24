@@ -1,0 +1,13 @@
+.toggle {
+  font-size: 1.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color-dark);
+  transition: transform 0.2s ease;
+  margin-left: 1rem;
+}
+
+.toggle:hover {
+  transform: scale(1.2);
+}
